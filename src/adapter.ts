@@ -205,6 +205,11 @@ export class BoostTestAdapter implements TestAdapter {
 	}
 
 	cancel() {
+        if (!this.testExecutable) {
+            this.log.info('No test executable is provided in the configuration');
+            return;
+        }
+        this.testExecutable.stop();
 	}
 
 	// detokenizeVariables is based on https://github.com/DominicVonk/vscode-variables
