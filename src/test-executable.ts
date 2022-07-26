@@ -213,7 +213,7 @@ export class TestExecutable {
 
 	private run(args: string[]): TestSession {
 		const path = resolve(this.workspaceFolder.uri.fsPath, this.path);
-		this._process = spawn(path, ['-x', 'no'].concat(args), { cwd: this.cwd });
+		this._process = spawn(path, ['--no_color_output'].concat(args), { cwd: this.cwd });
 		let stdout, stderr: ReadLine | undefined;
 
 		try {
